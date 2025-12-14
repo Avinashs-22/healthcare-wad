@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Patient Login</title>
+
+    <script>
+        function validateLogin() {
+            var username = document.loginForm.username.value;
+            var password = document.loginForm.password.value;
+
+            if (username == "") {
+                alert("Please enter username");
+                return false;
+            }
+
+            if (password == "") {
+                alert("Please enter password");
+                return false;
+            }
+
+            alert("Login validation successful ✅");
+            return true;
+        }
+    </script>
+</head>
+
+<body>
+
+<h2 align="center">Patient Login</h2>
+
+<form name="loginForm" onsubmit="return validateLogin()">
+    <table border="1" cellpadding="8" align="center">
+        <tr>
+            <th colspan="2">Login Form</th>
+        </tr>
+
+        <tr>
+            <td>Username</td>
+            <td><input type="text" name="username"></td>
+        </tr>
+
+        <tr>
+            <td>Password</td>
+            <td><input type="password" name="password"></td>
+        </tr>
+
+        <tr>
+            <td colspan="2" align="center">
+                <input type="submit" value="Login">
+                <input type="reset" value="Clear">
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2" align="center">
+                New User?
+                <a href="wad1_3regpage1.html">Register Here</a>
+            </td>
+        </tr>
+
+    </table>
+</form>
+
+</body>
+</html>

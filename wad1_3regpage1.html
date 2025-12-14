@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Patient Registration</title>
+
+    <script>
+        function validateForm() {
+            var name = document.myForm.fullname.value;
+            var email = document.myForm.email.value;
+            var mobile = document.myForm.mobile.value;
+            var username = document.myForm.username.value;
+            var password = document.myForm.password.value;
+
+            if (name == "") {
+                alert("Please enter your name");
+                return false;
+            }
+
+            if (email == "" || email.indexOf("@") == -1) {
+                alert("Please enter a valid email");
+                return false;
+            }
+
+            if (mobile.length != 10 || isNaN(mobile)) {
+                alert("Please enter a valid 10-digit mobile number");
+                return false;
+            }
+
+            if (username == "") {
+                alert("Please create a username");
+                return false;
+            }
+
+            if (password == "") {
+                alert("Please create a password");
+                return false;
+            }
+
+            alert("Validation Successful! Data is valid ✅");
+            return true;
+        }
+    </script>
+</head>
+
+<body>
+
+<h2 align="center">Online Healthcare Registration</h2>
+
+<form name="myForm" onsubmit="return validateForm()">
+    <table border="1" cellpadding="8" align="center">
+        <tr>
+            <th colspan="2">Patient Registration Form</th>
+        </tr>
+
+        <tr>
+            <td>First Name</td>
+            <td><input type="text" name="firstname"></td>
+        </tr>
+        <tr>
+            <td>Middle Name</td>
+            <td><input type="text" name="middlename"></td>
+        </tr>
+        <tr>
+            <td>Last Name</td>
+            <td><input type="text" name="lastname"></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><input type="text" name="email"></td>
+        </tr>
+
+        <tr>
+            <td>Mobile Number</td>
+            <td><input type="text" name="mobile"></td>
+        </tr>
+
+        <tr>
+            <td>Gender</td>
+            <td>
+                <input type="radio" name="gender"> Male
+                <input type="radio" name="gender"> Female
+                <input type="radio" name="gender"> Other
+            </td>
+        </tr>
+
+        <tr>
+            <td>Age</td>
+            <td><input type="number"></td>
+        </tr>
+
+        <tr>
+            <td>Type of Treatment</td>
+            <td>
+                <select>
+                    <option>General Medicine</option>
+                    <option>Veterinary</option>
+                    <option>Physiotherapy</option>
+                    <option>Mental Wellness</option>
+                </select>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Username</td>
+            <td><input type="text" name="username"></td>
+        </tr>
+
+        <tr>
+            <td>Password</td>
+            <td><input type="password" name="Create Password"></td>
+        </tr>
+        <tr>
+            <td>Confirm Password</td>
+            <td><input type="password" name="Confirm Password"></td>
+        </tr>
+
+        <!-- Validation Submit Button -->
+        <tr>
+            <td colspan="2" align="center">
+                <input type="submit" value="Submit">
+		<input type="submit" value="Register">
+                <input type="reset" value="Clear">
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2" align="center">
+                Already Registered?
+                <a href="wad1_3loginpage1.html">Click here to Login</a>
+            </td>
+        </tr>
+
+    </table>
+</form>
+
+</body>
+</html>

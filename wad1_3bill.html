@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bills and Payments</title>
+</head>
+
+<body>
+
+<h2 align="center">Bills & Payments</h2>
+
+<!-- Bills Table -->
+<table border="1" align="center" cellpadding="8" width="80%">
+    <tr>
+        <th>Bill ID</th>
+        <th>Date</th>
+        <th>Service</th>
+        <th>Doctor / Specialist</th>
+        <th>Amount (₹)</th>
+        <th>Status</th>
+    </tr>
+
+    <tr>
+        <td>BILL101</td>
+        <td>10-03-2025</td>
+        <td>General Consultation</td>
+        <td>Dr. Anil Kumar</td>
+        <td>500</td>
+        <td>Paid</td>
+    </tr>
+
+    <tr>
+        <td>BILL102</td>
+        <td>15-03-2025</td>
+        <td>Physiotherapy Session</td>
+        <td>Dr. Meera</td>
+        <td>1200</td>
+        <td>Pending</td>
+    </tr>
+</table>
+
+<br>
+
+<!-- Payment Section -->
+<form>
+<table border="1" align="center" cellpadding="8" width="50%">
+    <tr>
+        <th colspan="2">Make a Payment</th>
+    </tr>
+
+    <tr>
+        <td>Select Bill ID</td>
+        <td>
+            <select>
+                <option>BILL101</option>
+                <option>BILL102</option>
+            </select>
+        </td>
+    </tr>
+
+    <tr>
+        <td>Payment Method</td>
+        <td>
+            <input type="radio" name="pay"> UPI
+            <input type="radio" name="pay"> Card
+            <input type="radio" name="pay"> Net Banking
+        </td>
+    </tr>
+
+    <tr>
+        <td>Amount</td>
+        <td><input type="text" placeholder="Enter amount"></td>
+    </tr>
+
+    <tr>
+        <td colspan="2" align="center">
+            <input type="submit" value="Pay Now">
+        </td>
+    </tr>
+</table>
+</form>
+
+</body>
+</html>
