@@ -2,54 +2,145 @@
 <html>
 <head>
     <title>Doctor Availability</title>
+
+    <style>
+    body {
+        margin: 0;
+        font-family: "Segoe UI", Arial, sans-serif;
+        background: transparent;
+        color: #2c3e50;
+    }
+
+    /* Page wrapper */
+    .page-card {
+        width: 100%;
+        padding: 30px 40px;
+        box-sizing: border-box;
+    }
+
+    /* Page title */
+    .page-card h2 {
+        color: #1f618d;
+        font-size: 26px;
+        margin-bottom: 30px;
+        position: relative;
+    }
+
+    .page-card h2::after {
+        content: "";
+        width: 70px;
+        height: 4px;
+        background: linear-gradient(90deg, #3498db, #21618c);
+        display: block;
+        margin-top: 10px;
+        border-radius: 10px;
+    }
+
+    /* Doctor card */
+    .doctor-card {
+        background: linear-gradient(135deg, #f8fcff, #ffffff);
+        border-radius: 16px;
+        padding: 20px 25px;
+        margin-bottom: 20px;
+        box-shadow: 0 8px 22px rgba(0,0,0,0.12);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .doctor-info h3 {
+        margin: 0;
+        color: #21618c;
+        font-size: 20px;
+    }
+
+    .doctor-info p {
+        margin: 6px 0;
+        font-size: 14px;
+        color: #566573;
+    }
+
+    /* Availability badge */
+    .time-badge {
+        display: inline-block;
+        margin-top: 8px;
+        padding: 6px 14px;
+        border-radius: 20px;
+        background-color: #e8f8f5;
+        color: #117864;
+        font-size: 13px;
+        font-weight: 600;
+    }
+
+    /* Book button */
+    .book-btn {
+        background: linear-gradient(135deg, #3498db, #21618c);
+        color: white;
+        border: none;
+        padding: 10px 24px;
+        border-radius: 25px;
+        font-size: 15px;
+        cursor: pointer;
+        box-shadow: 0 6px 18px rgba(52,152,219,0.4);
+        transition: 0.3s;
+    }
+
+    .book-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 26px rgba(33,97,140,0.5);
+    }
+    </style>
 </head>
+
 <body>
 
-<h2 align="center">Doctor Availability</h2>
+<div class="page-card">
 
-<table border="1" align="center" cellpadding="8">
-    <tr>
-        <th>Doctor Name</th>
-        <th>Speciality</th>
-        <th>Location</th>
-        <th>Available Time</th>
-    </tr>
+    <h2>Doctor Availability</h2>
 
-    <tr>
-        <td>Dr. Anil Kumar</td>
-        <td>General Physician</td>
-        <td>Hyderabad</td>
-        <td>10 AM - 2 PM</td>
-<td>
-<a href="wad1_3bookslot.html" target="content">
-<button>Book Slot</button>
-</a>
-</td>
-    </tr>
+    <!-- Doctor 1 -->
+    <div class="doctor-card">
+        <div class="doctor-info">
+            <h3>Dr. Anil Kumar</h3>
+            <p>Speciality: General Physician</p>
+            <p>Location: Hyderabad</p>
+            <span class="time-badge">10 AM – 2 PM</span>
+        </div>
 
-    <tr>
-        <td>Dr. Meera</td>
-        <td>Physiotherapist</td>
-        <td>Bangalore</td>
-        <td>4 PM - 8 PM</td>
-<td>
-<a href="wad1_3bookslot.html" target="content">
-<button>Book Slot</button>
-</a>
-</td>
-    </tr>
+        <a href="wad1_3bookslot.html" target="content">
+            <button class="book-btn">Book Slot</button>
+        </a>
+    </div>
 
-    <tr>
-        <td>Dr. Ravi</td>
-        <td>Psychologist</td>
-        <td>Chennai</td>
-        <td>11 AM - 5 PM</td>
-	<td>
-<a href="wad1_3bookslot.html" target="content">
-<button>Book Slot</button>
-</a>
-</td>
-    </tr>
-</table>
+    <!-- Doctor 2 -->
+    <div class="doctor-card">
+        <div class="doctor-info">
+            <h3>Dr. Meera</h3>
+            <p>Speciality: Physiotherapist</p>
+            <p>Location: Bangalore</p>
+            <span class="time-badge">4 PM – 8 PM</span>
+        </div>
+
+        <a href="wad1_3bookslot.html" target="content">
+            <button class="book-btn">Book Slot</button>
+        </a>
+    </div>
+
+    <!-- Doctor 3 -->
+    <div class="doctor-card">
+        <div class="doctor-info">
+            <h3>Dr. Ravi</h3>
+            <p>Speciality: Psychologist</p>
+            <p>Location: Chennai</p>
+            <span class="time-badge">11 AM – 5 PM</span>
+        </div>
+
+        <a href="wad1_3bookslot.html" target="content">
+            <button class="book-btn">Book Slot</button>
+        </a>
+    </div>
+
+</div>
+
 </body>
 </html>

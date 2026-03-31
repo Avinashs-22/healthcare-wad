@@ -2,33 +2,129 @@
 <html>
 <head>
     <title>Prescriptions</title>
+
+    <style>
+    body {
+        margin: 0;
+        font-family: "Segoe UI", Arial, sans-serif;
+        background: transparent;
+        color: #2c3e50;
+    }
+
+    /* Page wrapper */
+    .page-card {
+        width: 100%;
+        padding: 30px 40px;
+        box-sizing: border-box;
+    }
+
+    /* Page title */
+    .page-card h2 {
+        color: #1f618d;
+        font-size: 26px;
+        margin-bottom: 30px;
+        position: relative;
+    }
+
+    .page-card h2::after {
+        content: "";
+        width: 70px;
+        height: 4px;
+        background: linear-gradient(90deg, #3498db, #21618c);
+        display: block;
+        margin-top: 10px;
+        border-radius: 10px;
+    }
+
+    /* Prescription card */
+    .prescription-card {
+        background: linear-gradient(135deg, #f8fcff, #ffffff);
+        border-radius: 18px;
+        padding: 22px 26px;
+        margin-bottom: 22px;
+        box-shadow: 0 8px 22px rgba(0,0,0,0.12);
+    }
+
+    .prescription-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 12px;
+    }
+
+    .date-badge {
+        padding: 6px 14px;
+        border-radius: 20px;
+        background-color: #ebf5fb;
+        color: #1f618d;
+        font-size: 13px;
+        font-weight: 600;
+    }
+
+    .doctor-name {
+        font-size: 16px;
+        font-weight: 600;
+        color: #21618c;
+    }
+
+    .prescription-details p {
+        margin: 6px 0;
+        font-size: 15px;
+    }
+
+    .label {
+        font-weight: 600;
+        color: #566573;
+    }
+
+    .medicine-box {
+        margin-top: 10px;
+        padding: 12px 16px;
+        border-radius: 12px;
+        background-color: #eef7ff;
+        color: #154360;
+        font-weight: 500;
+    }
+    </style>
 </head>
+
 <body>
 
-<h2 align="center">My Prescriptions</h2>
+<div class="page-card">
 
-<table border="1" align="center" cellpadding="8">
-    <tr>
-        <th>Date</th>
-        <th>Doctor</th>
-        <th>Diagnosis</th>
-        <th>Medicines</th>
-    </tr>
+    <h2>My Prescriptions</h2>
 
-    <tr>
-        <td>10-03-2025</td>
-        <td>Dr. Anil Kumar</td>
-        <td>Fever</td>
-        <td>Paracetamol, Rest</td>
-    </tr>
+    <!-- Prescription 1 -->
+    <div class="prescription-card">
+        <div class="prescription-header">
+            <div class="doctor-name">Dr. Anil Kumar</div>
+            <div class="date-badge">10-03-2025</div>
+        </div>
 
-    <tr>
-        <td>15-03-2025</td>
-        <td>Dr. Meera</td>
-        <td>Back Pain</td>
-        <td>Physio Exercises</td>
-    </tr>
-</table>
+        <div class="prescription-details">
+            <p><span class="label">Diagnosis:</span> Fever</p>
+            <div class="medicine-box">
+                Paracetamol, Rest
+            </div>
+        </div>
+    </div>
+
+    <!-- Prescription 2 -->
+    <div class="prescription-card">
+        <div class="prescription-header">
+            <div class="doctor-name">Dr. Meera</div>
+            <div class="date-badge">15-03-2025</div>
+        </div>
+
+        <div class="prescription-details">
+            <p><span class="label">Diagnosis:</span> Back Pain</p>
+            <div class="medicine-box">
+                Physiotherapy Exercises
+            </div>
+        </div>
+    </div>
+
+</div>
 
 </body>
 </html>

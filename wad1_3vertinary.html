@@ -2,43 +2,134 @@
 <html>
 <head>
     <title>Veterinary Services</title>
+
+    <style>
+    body {
+        margin: 0;
+        font-family: "Segoe UI", Arial, sans-serif;
+        background: transparent;
+        color: #2c3e50;
+    }
+
+    /* Page wrapper */
+    .page-card {
+        width: 100%;
+        padding: 30px 40px;
+        box-sizing: border-box;
+    }
+
+    /* Page title */
+    .page-card h2 {
+        color: #1f618d;
+        font-size: 26px;
+        margin-bottom: 30px;
+        position: relative;
+    }
+
+    .page-card h2::after {
+        content: "";
+        width: 70px;
+        height: 4px;
+        background: linear-gradient(90deg, #3498db, #21618c);
+        display: block;
+        margin-top: 10px;
+        border-radius: 10px;
+    }
+
+    /* Service card */
+    .service-card {
+        background: linear-gradient(135deg, #f8fcff, #ffffff);
+        border-radius: 18px;
+        padding: 22px 26px;
+        margin-bottom: 22px;
+        box-shadow: 0 8px 22px rgba(0,0,0,0.12);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .service-info h3 {
+        margin: 0;
+        font-size: 20px;
+        color: #21618c;
+    }
+
+    /* Availability badge */
+    .availability {
+        display: inline-block;
+        margin-top: 8px;
+        padding: 6px 14px;
+        border-radius: 20px;
+        background-color: #ebf5fb;
+        color: #1f618d;
+        font-size: 13px;
+        font-weight: 600;
+    }
+
+    .availability.emergency {
+        background-color: #fdecea;
+        color: #922b21;
+    }
+
+    /* Book button */
+    .book-btn {
+        background: linear-gradient(135deg, #3498db, #21618c);
+        color: white;
+        border: none;
+        padding: 10px 28px;
+        border-radius: 25px;
+        font-size: 15px;
+        cursor: pointer;
+        box-shadow: 0 6px 18px rgba(52,152,219,0.4);
+        transition: 0.3s;
+    }
+
+    .book-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 26px rgba(33,97,140,0.5);
+    }
+    </style>
 </head>
+
 <body>
 
-<h2 align="center">Veterinary Services</h2>
+<div class="page-card">
 
-<table border="1" align="center" cellpadding="8">
-    <tr>
-        <th>Service</th>
-        <th>Availability</th>
-    </tr>
+    <h2>Veterinary Services</h2>
 
-    <tr>
-        <td>Pet Checkup</td>
-        <td>Available</td>
-<td>
-<a href="wad1_3bookslot.html" target="content">
-<button>Book Slot</button>
-</a>
-</td>
-    </tr>
+    <!-- Service 1 -->
+    <div class="service-card">
+        <div class="service-info">
+            <h3>Pet Checkup</h3>
+            <span class="availability">Available</span>
+        </div>
 
-    <tr>
-        <td>Mobile Vet Visit</td>
-        <td>Available</td>
-<td>
-<a href="wad1_3bookslot.html" target="content">
-<button>Book Slot</button>
-</a>
-</td>
-    </tr>
+        <a href="wad1_3bookslot.html" target="content">
+            <button class="book-btn">Book Slot</button>
+        </a>
+    </div>
 
-    <tr>
-        <td>Emergency Care</td>
-        <td>24/7</td>
-    </tr>
+    <!-- Service 2 -->
+    <div class="service-card">
+        <div class="service-info">
+            <h3>Mobile Vet Visit</h3>
+            <span class="availability">Available</span>
+        </div>
 
-    </table>
+        <a href="wad1_3bookslot.html" target="content">
+            <button class="book-btn">Book Slot</button>
+        </a>
+    </div>
+
+    <!-- Service 3 -->
+    <div class="service-card">
+        <div class="service-info">
+            <h3>Emergency Care</h3>
+            <span class="availability emergency">24/7 Emergency</span>
+        </div>
+    </div>
+
+</div>
 
 </body>
 </html>

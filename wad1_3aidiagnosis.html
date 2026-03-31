@@ -2,44 +2,127 @@
 <html>
 <head>
     <title>AI Diagnosis</title>
+
+    <style>
+    body {
+        margin: 0;
+        font-family: "Segoe UI", Arial, sans-serif;
+        background: transparent;
+        color: #2c3e50;
+    }
+
+    /* Main content area (right dashboard panel) */
+    .page-card {
+        width: 100%;
+        padding: 30px 40px;
+        box-sizing: border-box;
+    }
+
+    /* Page Title */
+    .page-card h2 {
+        color: #1f618d;
+        margin-bottom: 25px;
+        font-size: 26px;
+        position: relative;
+    }
+
+    .page-card h2::after {
+        content: "";
+        width: 65px;
+        height: 4px;
+        background: linear-gradient(90deg, #3498db, #21618c);
+        display: block;
+        margin-top: 10px;
+        border-radius: 10px;
+    }
+
+    /* Textarea */
+    textarea {
+        width: 100%;
+        min-height: 150px;
+        padding: 16px;
+        border-radius: 12px;
+        border: 1px solid #bcdffb;
+        font-size: 15px;
+        background: linear-gradient(180deg, #ffffff, #f8fcff);
+        resize: vertical;
+        transition: 0.3s;
+    }
+
+    textarea::placeholder {
+        color: #7f8c8d;
+        font-style: italic;
+    }
+
+    textarea:focus {
+        outline: none;
+        border-color: #3498db;
+        box-shadow: 0 0 12px rgba(52,152,219,0.4);
+    }
+
+    /* Button */
+    .center-btn {
+        margin-top: 22px;
+    }
+
+    input[type=submit] {
+        background: linear-gradient(135deg, #3498db, #21618c);
+        color: white;
+        border: none;
+        padding: 12px 36px;
+        border-radius: 30px;
+        font-size: 16px;
+        cursor: pointer;
+        box-shadow: 0 8px 22px rgba(52,152,219,0.4);
+        transition: 0.3s;
+    }
+
+    input[type=submit]:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 14px 30px rgba(33,97,140,0.5);
+    }
+
+    /* AI Result Box */
+    .result-box {
+        margin-top: 35px;
+        padding: 22px 26px;
+        border-radius: 14px;
+        background: linear-gradient(135deg, #eef7ff, #ffffff);
+        border-left: 6px solid #3498db;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    }
+
+    .result-title {
+        font-size: 18px;
+        font-weight: 700;
+        color: #21618c;
+        margin-bottom: 10px;
+    }
+    </style>
 </head>
+
 <body>
 
-<h2 align="center">AI Health Diagnosis</h2>
+<div class="page-card">
 
-<form>
-<table border="1" align="center" cellpadding="8">
-    <tr>
-        <th>Describe Your Problem</th>
-    </tr>
+    <h2>AI Health Diagnosis</h2>
 
-    <tr>
-        <td>
-            <textarea rows="5" cols="50"
-            placeholder="Type your symptoms here..."></textarea>
-        </td>
-    </tr>
+    <form>
+        <textarea placeholder="Describe your symptoms such as pain, fever, duration, intensity..."></textarea>
 
-    <tr>
-        <td align="center">
+        <div class="center-btn">
             <input type="submit" value="Analyze">
-        </td>
-    </tr>
-</table>
-</form>
+        </div>
+    </form>
 
-<br>
+    <div class="result-box">
+        <div class="result-title">AI Result</div>
+        Identified Issue: Sample Condition<br>
+        Cause: Sample Cause<br>
+        Suggested Doctor: Specialist
+    </div>
 
-<table border="1" align="center" cellpadding="8">
-    <tr><th>AI Result</th></tr>
-    <tr>
-        <td>
-            Identified Issue: Sample Condition<br>
-            Cause: Sample Cause<br>
-            Suggested Doctor: Specialist
-        </td>
-    </tr>
-</table>
+</div>
 
 </body>
 </html>

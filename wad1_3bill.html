@@ -2,82 +2,240 @@
 <html>
 <head>
     <title>Bills and Payments</title>
+
+    <style>
+    body {
+        margin: 0;
+        font-family: "Segoe UI", Arial, sans-serif;
+        background: transparent;
+        color: #2c3e50;
+    }
+
+    /* Page wrapper */
+    .page-card {
+        width: 100%;
+        padding: 30px 40px;
+        box-sizing: border-box;
+    }
+
+    /* Page title */
+    .page-card h2 {
+        color: #1f618d;
+        font-size: 26px;
+        margin-bottom: 30px;
+        position: relative;
+    }
+
+    .page-card h2::after {
+        content: "";
+        width: 70px;
+        height: 4px;
+        background: linear-gradient(90deg, #3498db, #21618c);
+        display: block;
+        margin-top: 10px;
+        border-radius: 10px;
+    }
+
+    /* Bill card */
+    .bill-card {
+        background: linear-gradient(135deg, #f8fcff, #ffffff);
+        border-radius: 18px;
+        padding: 22px 26px;
+        margin-bottom: 20px;
+        box-shadow: 0 8px 22px rgba(0,0,0,0.12);
+    }
+
+    .bill-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .bill-id {
+        font-weight: 700;
+        color: #21618c;
+    }
+
+    .status {
+        padding: 6px 14px;
+        border-radius: 20px;
+        font-size: 13px;
+        font-weight: 600;
+    }
+
+    .status.paid {
+        background-color: #eafaf1;
+        color: #1e8449;
+    }
+
+    .status.pending {
+        background-color: #fef5e7;
+        color: #b9770e;
+    }
+
+    .bill-details p {
+        margin: 6px 0;
+        font-size: 15px;
+    }
+
+    .amount {
+        font-size: 18px;
+        font-weight: 700;
+        color: #154360;
+        margin-top: 8px;
+    }
+
+    /* Payment card */
+    .payment-card {
+        margin-top: 40px;
+        max-width: 550px;
+        background: linear-gradient(135deg, #f8fcff, #ffffff);
+        padding: 26px 30px;
+        border-radius: 18px;
+        box-shadow: 0 10px 28px rgba(0,0,0,0.15);
+    }
+
+    .payment-card h3 {
+        margin-top: 0;
+        margin-bottom: 20px;
+        color: #21618c;
+        font-size: 22px;
+    }
+
+    .form-group {
+        margin-bottom: 18px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 6px;
+        font-weight: 600;
+        color: #21618c;
+    }
+
+    input[type=text], select {
+        width: 100%;
+        padding: 12px 14px;
+        border-radius: 10px;
+        border: 1px solid #bcdffb;
+        font-size: 15px;
+        background: #f9fcff;
+        transition: 0.3s;
+    }
+
+    input:focus, select:focus {
+        outline: none;
+        border-color: #3498db;
+        box-shadow: 0 0 10px rgba(52,152,219,0.35);
+    }
+
+    .payment-options {
+        margin-top: 6px;
+    }
+
+    .payment-options label {
+        display: inline-block;
+        margin-right: 15px;
+        font-weight: 500;
+        color: #34495e;
+    }
+
+    /* Pay button */
+    .center-btn {
+        text-align: center;
+        margin-top: 25px;
+    }
+
+    input[type=submit] {
+        background: linear-gradient(135deg, #3498db, #21618c);
+        color: white;
+        border: none;
+        padding: 12px 40px;
+        border-radius: 30px;
+        font-size: 16px;
+        cursor: pointer;
+        box-shadow: 0 8px 22px rgba(52,152,219,0.4);
+        transition: 0.3s;
+    }
+
+    input[type=submit]:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 14px 30px rgba(33,97,140,0.5);
+    }
+    </style>
 </head>
 
 <body>
 
-<h2 align="center">Bills & Payments</h2>
+<div class="page-card">
 
-<!-- Bills Table -->
-<table border="1" align="center" cellpadding="8" width="80%">
-    <tr>
-        <th>Bill ID</th>
-        <th>Date</th>
-        <th>Service</th>
-        <th>Doctor / Specialist</th>
-        <th>Amount (₹)</th>
-        <th>Status</th>
-    </tr>
+    <h2>Bills & Payments</h2>
 
-    <tr>
-        <td>BILL101</td>
-        <td>10-03-2025</td>
-        <td>General Consultation</td>
-        <td>Dr. Anil Kumar</td>
-        <td>500</td>
-        <td>Paid</td>
-    </tr>
+    <!-- Bill 1 -->
+    <div class="bill-card">
+        <div class="bill-header">
+            <div class="bill-id">BILL101</div>
+            <div class="status paid">Paid</div>
+        </div>
 
-    <tr>
-        <td>BILL102</td>
-        <td>15-03-2025</td>
-        <td>Physiotherapy Session</td>
-        <td>Dr. Meera</td>
-        <td>1200</td>
-        <td>Pending</td>
-    </tr>
-</table>
+        <div class="bill-details">
+            <p>Date: 10-03-2025</p>
+            <p>Service: General Consultation</p>
+            <p>Doctor: Dr. Anil Kumar</p>
+            <div class="amount">₹500</div>
+        </div>
+    </div>
 
-<br>
+    <!-- Bill 2 -->
+    <div class="bill-card">
+        <div class="bill-header">
+            <div class="bill-id">BILL102</div>
+            <div class="status pending">Pending</div>
+        </div>
 
-<!-- Payment Section -->
-<form>
-<table border="1" align="center" cellpadding="8" width="50%">
-    <tr>
-        <th colspan="2">Make a Payment</th>
-    </tr>
+        <div class="bill-details">
+            <p>Date: 15-03-2025</p>
+            <p>Service: Physiotherapy Session</p>
+            <p>Doctor: Dr. Meera</p>
+            <div class="amount">₹1200</div>
+        </div>
+    </div>
 
-    <tr>
-        <td>Select Bill ID</td>
-        <td>
-            <select>
-                <option>BILL101</option>
-                <option>BILL102</option>
-            </select>
-        </td>
-    </tr>
+    <!-- Payment Section -->
+    <div class="payment-card">
+        <h3>Make a Payment</h3>
 
-    <tr>
-        <td>Payment Method</td>
-        <td>
-            <input type="radio" name="pay"> UPI
-            <input type="radio" name="pay"> Card
-            <input type="radio" name="pay"> Net Banking
-        </td>
-    </tr>
+        <form>
+            <div class="form-group">
+                <label>Select Bill ID</label>
+                <select>
+                    <option>BILL101</option>
+                    <option>BILL102</option>
+                </select>
+            </div>
 
-    <tr>
-        <td>Amount</td>
-        <td><input type="text" placeholder="Enter amount"></td>
-    </tr>
+            <div class="form-group">
+                <label>Payment Method</label>
+                <div class="payment-options">
+                    <label><input type="radio" name="pay"> UPI</label>
+                    <label><input type="radio" name="pay"> Card</label>
+                    <label><input type="radio" name="pay"> Net Banking</label>
+                </div>
+            </div>
 
-    <tr>
-        <td colspan="2" align="center">
-            <input type="submit" value="Pay Now">
-        </td>
-    </tr>
-</table>
-</form>
+            <div class="form-group">
+                <label>Amount</label>
+                <input type="text" placeholder="Enter amount">
+            </div>
+
+            <div class="center-btn">
+                <input type="submit" value="Pay Now">
+            </div>
+        </form>
+    </div>
+
+</div>
 
 </body>
 </html>

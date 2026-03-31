@@ -1,65 +1,191 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Patient Login</title>
+  <title>Patient Login</title>
 
-    <script>
-        function validateLogin() {
-            var username = document.loginForm.username.value;
-            var password = document.loginForm.password.value;
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f3f7fb;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
 
-            if (username == "") {
-                alert("Please enter username");
-                return false;
-            }
+    .login-box {
+      width: 420px;
+      background: white;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0px 10px 30px rgba(0,0,0,0.15);
+    }
 
-            if (password == "") {
-                alert("Please enter password");
-                return false;
-            }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #0f3d5e;
+    }
 
-            alert("Login validation successful ✅");
-            return true;
-        }
-    </script>
+    label {
+      display: block;
+      margin-top: 12px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-top: 6px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 15px;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: #0f3d5e;
+    }
+
+    .btn-row {
+      display: flex;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    button {
+      flex: 1;
+      padding: 12px;
+      border: none;
+      border-radius: 12px;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    .btn-login {
+      background: #0f3d5e;
+      color: white;
+    }
+
+    .btn-clear {
+      background: #e2e8f0;
+      color: #333;
+    }
+
+    .link {
+      margin-top: 15px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .link a {
+      color: #0f3d5e;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .msg {
+      margin-top: 12px;
+      text-align: center;
+      font-size: 14px;
+      font-weight: bold;
+      min-height: 18px;
+    }
+
+    .msg.success { color: green; }
+    .msg.error { color: red; }
+  </style>
 </head>
 
 <body>
 
-<h2 align="center">Patient Login</h2>
+  <div class="login-box">
+    <h2>Patient Login</h2>
 
-<form name="loginForm" onsubmit="return validateLogin()">
-    <table border="1" cellpadding="8" align="center">
-        <tr>
-            <th colspan="2">Login Form</th>
-        </tr>
+    <form id="loginForm">
+      <label>Username</label>
+      <input type="text" id="username" placeholder="Enter username" required />
 
-        <tr>
-            <td>Username</td>
-            <td><input type="text" name="username"></td>
-        </tr>
+      <label>Password</label>
+      <input type="password" id="password" placeholder="Enter password" required />
 
-        <tr>
-            <td>Password</td>
-            <td><input type="password" name="password"></td>
-        </tr>
+      <div class="btn-row">
+        <button type="submit" class="btn-login" id="loginBtn">Login</button>
+        <button type="reset" class="btn-clear">Clear</button>
+      </div>
 
-        <tr>
-            <td colspan="2" align="center">
-                <input type="submit" value="Login">
-                <input type="reset" value="Clear">
-            </td>
-        </tr>
+      <div id="message" class="msg"></div>
 
-        <tr>
-            <td colspan="2" align="center">
-                New User?
-                <a href="wad1_3regpage1.html">Register Here</a>
-            </td>
-        </tr>
+      <div class="link">
+        New User? <a href="wad1_3regpage1.html">Register Here</a>
+      </div>
+    </form>
+  </div>
 
-    </table>
-</form>
+  <script>
+    const API_URL = "http://localhost:5000";
+
+    const form = document.getElementById("loginForm");
+    const messageBox = document.getElementById("message");
+    const loginBtn = document.getElementById("loginBtn");
+
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value.trim();
+
+      messageBox.textContent = "";
+      messageBox.className = "msg";
+
+      if (!username || !password) {
+        messageBox.textContent = "Username and password required ❌";
+        messageBox.classList.add("error");
+        return;
+      }
+
+      try {
+        loginBtn.disabled = true;
+        loginBtn.textContent = "Logging in...";
+
+        const res = await fetch(`${API_URL}/login`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ username, password })
+        });
+
+        const data = await res.json().catch(() => ({}));
+
+        if (!res.ok) {
+          messageBox.textContent = data.error || "Login failed ❌";
+          messageBox.classList.add("error");
+          return;
+        }
+
+        // ✅ Save token + user
+        localStorage.setItem("token", data.token);
+        localStorage.setItem("user", JSON.stringify(data.user));
+
+        messageBox.textContent = "Login successful ✅ Redirecting...";
+        messageBox.classList.add("success");
+
+        // ✅ Correct redirect (same folder)
+        setTimeout(() => {
+          window.location.href = "index.html";
+        }, 500);
+
+      } catch (err) {
+        messageBox.textContent = "Backend not running or network issue ❌";
+        messageBox.classList.add("error");
+        console.error("Login fetch error:", err);
+      } finally {
+        loginBtn.disabled = false;
+        loginBtn.textContent = "Login";
+      }
+    });
+  </script>
 
 </body>
 </html>
